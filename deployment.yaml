@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: php
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: php
+    spec:
+      containers:
+        - image: gcr.io/${PROJECT_ID}/${IMAGE_PHP_APACHE}
+          name: apache
+          ports:
+            - containerPort: 80
+              name: php

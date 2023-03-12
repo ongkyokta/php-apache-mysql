@@ -14,8 +14,8 @@ spec:
         app: php-apache
     spec:
       containers:
-        - image: gcr.io/${PROJECT_ID}/${IMAGE_PHP_APACHE}
-          name: apache
+        - image: asia.gcr.io/devops-rnd-328408/php-apache:latest
+          name: php-apache
           resources:
             requests:
               cpu: "50m"
@@ -25,4 +25,4 @@ spec:
               memory: "500Mi"
           ports:
             - containerPort: 80
-              name: php
+              name: http

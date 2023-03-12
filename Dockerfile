@@ -1,4 +1,8 @@
-FROM php:7-apache
+FROM php:7.0-apache
+WORKDIR /var/www/html/Jkopi
 RUN apt-get update
-COPY ./php/php.ini /usr/local/etc/php/
-COPY ./html/ /var/www/html
+RUN apt-get clean
+RUN mkdir -p /var/www/html/Jkopi
+COPY ./Jkopi/ /var/www/html/Jkopi
+RUN chmod -R 777 /var/www/html/Jkopi
+RUN a2enmod rewrite

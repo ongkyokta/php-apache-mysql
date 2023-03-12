@@ -1,17 +1,28 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: php
+  name: php-apache
 spec:
-  replicas: 1
+  selector:
+    matchLabels:
+      app: php-apache
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
-        app: php
+        app: php-apache
     spec:
       containers:
         - image: gcr.io/${PROJECT_ID}/${IMAGE_PHP_APACHE}
           name: apache
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "128Mi"
+            limits:
+              cpu: "250m"
+              memory: "500Mi"
           ports:
             - containerPort: 80
               name: php

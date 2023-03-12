@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: php-apache
+  name: php-apache2
 spec:
   selector:
     matchLabels:
-      app: php-apache
+      app: php-apache2
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: php-apache
+        app: php-apache2
     spec:
       containers:
-        - image: asia.gcr.io/devops-rnd-328408/php-apache:latest
-          name: php-apache
+        - image: asia.gcr.io/devops-rnd-328408/php-apache:test
+          name: php-apache2
           resources:
             requests:
               cpu: "50m"

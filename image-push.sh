@@ -5,5 +5,6 @@ do
         p) project_name=${OPTARG};;
     esac
 done
-echo "docker push asia.gcr.io/${project_name}/php-apache:latest"
-docker push asia.gcr.io/${project_name}/php-apache:latest
+#./image-push.sh -p devops-rnd-328408
+echo "docker push asia.gcr.io/${project_name}/php-apache:test"
+docker push asia.gcr.io/${project_name}/php-apache:test

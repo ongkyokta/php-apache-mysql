@@ -3,12 +3,12 @@ kind: Service
 metadata:
   #annotations:
   #  networking.gke.io/load-balancer-type: Internal
-  name: php-apache
+  name: php-apache2
 spec:
   ports:
     - name: http
       port: 80
       targetPort: http
   selector:
-    app: php-apache
+    app: php-apache2
   type: LoadBalancer
